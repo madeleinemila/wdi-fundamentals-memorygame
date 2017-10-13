@@ -1,3 +1,8 @@
+:root {
+	--low-accent: #00A6B3;
+	--high-accent: #F15B31;
+}
+
 body {
 	text-align: center;
 	margin: 0;
@@ -20,6 +25,7 @@ h2 {
 	color: #0D2C40;
 	font-weight: 600;
 	font-size: 20px;
+	margin: 60px 10px 20px 10px;
 }
 
 a {
@@ -31,7 +37,7 @@ a {
 }
 
 header {
-	background-color: #F15B31;
+	background-color: var(--high-accent);
 	padding: 30px 20px;
 }
 
@@ -40,7 +46,7 @@ header > h1 {
 }
 
 nav {
-	background-color: #00A6B3;
+	background-color: var(--low-accent);
 	padding: 20px 0;
 }
 
@@ -54,15 +60,16 @@ a:hover {
 }
 
 main {
-	width: 850px;
+	width: 800px;
 	margin: 35px auto;
 }
-
 
 p {
 	font-family: "Droid Serif", serif;
 	line-height: 26px;
-	font-size: 18px;
+	font-size: 16px;
+	text-align: justify;
+/*	text-align-last: center;*/
 	}
 
 img {
@@ -71,7 +78,7 @@ img {
 
 footer {
 	text-transform: uppercase;
-	padding: 0 20px;
+	padding: 10px 20px;
 	background-color: #0D2C40;
 	color: white;
 
@@ -109,9 +116,28 @@ footer p {
 }
 
 .name {
-	color: #F15B31;
+	color: var(--high-accent);
 	font-weight: 700;
 }
+
+.highlight {
+	color: var(--high-accent);
+}
+
+#game-status {
+	background-color: white;
+	color: var(--low-accent);
+	margin: 35px 30px 80px 30px;
+	padding: 20px;
+	text-transform: uppercase;
+	font-family: Raleway, sans-serif;
+	letter-spacing: 1px;	
+	font-weight: 500;
+	text-align: left;
+	font-size: 20px;
+}
+
+
 
 /*footer > a {
 	font-family: Raleway, sans-serif;

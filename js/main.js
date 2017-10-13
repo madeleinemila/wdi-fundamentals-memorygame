@@ -28,9 +28,10 @@ var cardsInPlay = [];
 
 var checkForMatch = function() {
 		if (cardsInPlay[0] === cardsInPlay[1]) {
-			alert('You found a match!');
+			document.getElementById('game-status').textContent = 'You found a match!';
+
 		} else {
-			alert('Sorry, try again.');
+			document.getElementById('game-status').textContent = 'Sorry, try again.';
 		}
 };
 
