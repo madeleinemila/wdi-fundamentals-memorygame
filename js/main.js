@@ -49,9 +49,13 @@ var checkFlipped = function(card) {
 var checkForMatch = function() {
 	if (cardsInPlay[0].playRank === cardsInPlay[1].playRank) {
 		// IF MATCHING
-		document.getElementById('game-status').innerHTML = 'You found a match!<span class="continue">Next turn &gt;</span>';
+		// update player console
+		document.getElementById('game-status').innerHTML = 'You found a match!<span class="continue">Continue &gt;</span>';
+		// prevent flipping more cards until continue button pressed
+		document.getElementById('game-board').style.pointerEvents = "none";
+		// reset for next turn if user presses continue button
 		document.getElementsByClassName('continue')[0].addEventListener('click', resetCardsWhenMatch);
-		// check if game is finished
+		// but also check if game is finished
 		var endGame = cards.every(checkFlipped, true);
 		if (endGame === true) {
 			document.getElementById('game-status').innerHTML = "Congratulations! You've found all the pairs!<span class='continue'>Reset &gt;</span>";
@@ -59,7 +63,11 @@ var checkForMatch = function() {
 		};
 	} else {
 		// IF NON-MATCHING
+		// update player console
 		document.getElementById('game-status').innerHTML = 'Sorry, try again.<span class="continue">Next turn &gt;</span>';
+		// prevent flipping more cards until continue button pressed
+		document.getElementById('game-board').style.pointerEvents = "none";
+		// reset for next turn if user presses continue button
 		document.getElementsByClassName('continue')[0].addEventListener('click', resetCardsWhenNoMatch);
 	};
 };
@@ -98,11 +106,13 @@ var resetCardsWhenNoMatch = function(){
 	cardsInPlay = [];
 	// update player console
 	document.getElementById('game-status').innerHTML = 'Click two cards';
+	document.getElementById('game-board').style.pointerEvents = "auto";
 };
 
 var resetCardsWhenMatch = function() {
 	cardsInPlay= [];
 	document.getElementById('game-status').innerHTML = 'Click two new cards';
+	document.getElementById('game-board').style.pointerEvents = "auto";
 };
 
 var createBoard = function() {
@@ -125,7 +135,7 @@ var resetAll = function() {
 	};
 	createBoard();
 	document.getElementById('game-status').innerHTML = 'Click any two cards';
-
+	document.getElementById('game-board').style.pointerEvents = "auto";
 };
 
 createBoard();
