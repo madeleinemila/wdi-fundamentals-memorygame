@@ -115,7 +115,26 @@ var resetCardsWhenMatch = function() {
 	document.getElementById('game-board').style.pointerEvents = "auto";
 };
 
+
+var shuffle = function(array) {
+	//declare variables and assign array length to current index
+	var currentIndex = array.length, tempValue, randomIndex;
+	// while there are still elements to shuffle
+	while (0 !== currentIndex) {
+		// pick a random element of remaining elements
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		// swap random element with current element on end
+		currentIndex -= 1;
+		tempValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = tempValue;
+	};
+	return array;
+};
+
+
 var createBoard = function() {
+	shuffle(cards);
 	for (var i=0; i<cards.length; i++){
 		var cardElement = document.createElement('img');
 		cardElement.setAttribute('src', 'images/back.png');
