@@ -127,7 +127,7 @@ footer p {
 #game-status {
 	background-color: white;
 	color: var(--low-accent);
-	margin: 35px 30px 80px 30px;
+	margin: 35px 8px 80px 8px;
 	padding: 20px;
 	text-transform: uppercase;
 	font-family: Raleway, sans-serif;
@@ -137,6 +137,13 @@ footer p {
 	font-size: 20px;
 }
 
+.continue {
+	float: right;
+}
+
+.continue:hover {
+	color: var(--high-accent);
+}
 
 
 /*footer > a {

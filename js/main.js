@@ -28,10 +28,10 @@ var cardsInPlay = [];
 
 var checkForMatch = function() {
 		if (cardsInPlay[0] === cardsInPlay[1]) {
-			document.getElementById('game-status').textContent = 'You found a match!';
+			document.getElementById('game-status').innerHTML = 'You found a match!<span class="continue">Next turn &gt;</span>';
 
 		} else {
-			document.getElementById('game-status').textContent = 'Sorry, try again.';
+			document.getElementById('game-status').innerHTML = 'Sorry, try again.<span class="continue">Next turn &gt;</span>';
 		}
 };
 
