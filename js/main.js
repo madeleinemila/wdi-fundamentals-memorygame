@@ -1,51 +1,87 @@
-console.log("Up and running!");
+console.log("Up and running! Hi there GA.");
 
 var cards = [
 {
 	rank: "queen",
 	suit: "hearts",
-	cardImage: "images/queen-of-hearts.png"
+	cardImage: "images/queen-of-hearts.png",
+	flipped: false
 },
 {
 	rank: "queen",
 	suit: "diamonds",
-	cardImage: "images/queen-of-diamonds.png"
+	cardImage: "images/queen-of-diamonds.png",
+	flipped: false
 },
 {
 	rank: "king",
 	suit: "hearts",
-	cardImage: "images/king-of-hearts.png"
+	cardImage: "images/king-of-hearts.png",
+	flipped: false
 },
 {
 	rank: "king",
 	suit: "diamonds",
-	cardImage: "images/king-of-diamonds.png"
+	cardImage: "images/king-of-diamonds.png",
+	flipped: false
 }
 ];
+
 
 var cardsInPlay = [];
 
 
 var checkForMatch = function() {
-		if (cardsInPlay[0] === cardsInPlay[1]) {
-			document.getElementById('game-status').innerHTML = 'You found a match!<span class="continue">Next turn &gt;</span>';
-
-		} else {
-			document.getElementById('game-status').innerHTML = 'Sorry, try again.<span class="continue">Next turn &gt;</span>';
-		}
+	if (cardsInPlay[0].playRank === cardsInPlay[1].playRank) {
+		// IF MATCHING
+		document.getElementById('game-status').innerHTML = 'You found a match!<span class="continue">Next turn &gt;</span>';
+		document.getElementsByClassName('continue')[0].addEventListener('click', resetCardsWhenMatch);
+	} else {
+		// IF NON-MATCHING
+		document.getElementById('game-status').innerHTML = 'Sorry, try again.<span class="continue">Next turn &gt;</span>';
+		document.getElementsByClassName('continue')[0].addEventListener('click', resetCardsWhenNoMatch);
+	};
 };
 
 
 var flipCard = function(){
 	var cardId = this.getAttribute('data-id');
 	console.log("User flipped " + cards[cardId].rank);
-	cardsInPlay.push(cards[cardId].rank);
+	var playedObject = 
+		{
+			playRank: cards[cardId].rank,
+			playId: cardId
+		};
+	cardsInPlay.push(playedObject);
+
 	console.log("Image: " + cards[cardId].cardImage);
 	console.log("Suit: " + cards[cardId].suit);
 	this.setAttribute('src', cards[cardId].cardImage);
+	cards[cardId].flipped = true;
 	if (cardsInPlay.length === 2) {
 		checkForMatch();
 	}
+};
+
+var resetCardsWhenNoMatch = function(){
+	// display back of cards
+			// for each card in play
+	 		for (var i=0; i<cardsInPlay.length; i++) {
+ 				// find card element 
+				var cardToFlipBack = document.querySelectorAll('[data-id]')[cardsInPlay[i].playId];
+		 		// change to back of card image
+			 	cardToFlipBack.setAttribute('src', 'images/back.png');
+			 	cards[cardsInPlay[i].playId].flipped = false;
+			 };
+	// empty cardsInPlay array
+	cardsInPlay = [];
+	// update player console
+	document.getElementById('game-status').innerHTML = 'Click two cards';
+};
+
+var resetCardsWhenMatch = function() {
+	cardsInPlay= [];
+	document.getElementById('game-status').innerHTML = 'Click two new cards';
 };
 
 var createBoard = function() {
