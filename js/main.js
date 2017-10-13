@@ -31,11 +31,32 @@ var cards = [
 var cardsInPlay = [];
 
 
+// ** ENDGAME
+
+var checkFlipped = function(card) {
+	return card.flipped === true;
+};
+
+
+
+
+
+
+
+// ** MAIN GAMEPLAY
+
+
 var checkForMatch = function() {
 	if (cardsInPlay[0].playRank === cardsInPlay[1].playRank) {
 		// IF MATCHING
 		document.getElementById('game-status').innerHTML = 'You found a match!<span class="continue">Next turn &gt;</span>';
 		document.getElementsByClassName('continue')[0].addEventListener('click', resetCardsWhenMatch);
+		// check if game is finished
+		var endGame = cards.every(checkFlipped, true);
+		if (endGame === true) {
+			document.getElementById('game-status').innerHTML = "Congratulations! You've found all the pairs!<span class='continue'>Reset &gt;</span>";
+			document.getElementsByClassName('continue')[0].addEventListener('click', resetAll);
+		};
 	} else {
 		// IF NON-MATCHING
 		document.getElementById('game-status').innerHTML = 'Sorry, try again.<span class="continue">Next turn &gt;</span>';
@@ -96,6 +117,16 @@ var createBoard = function() {
 	};
 };
 
+var resetAll = function() {
+	document.getElementById('game-board').innerHTML = '';
+	cardsInPlay = [];
+	for (var i=0; i<cards.length; i++) {
+		cards[i].flipped = false;
+	};
+	createBoard();
+	document.getElementById('game-status').innerHTML = 'Click any two cards';
+
+};
 
 createBoard();
 
