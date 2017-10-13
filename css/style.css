@@ -139,6 +139,9 @@ footer p {
 
 .continue {
 	float: right;
+    -webkit-animation: myblink 1s infinite alternate;
+    -moz-animation: myblink 1s infinite alternate;
+    animation: myblink 1s infinite alternate;
 }
 
 .continue:hover {
@@ -147,14 +150,25 @@ footer p {
 	cursor: hand;
 }
 
+.blinking {
+    -webkit-animation: myblink 1s infinite alternate;
+    -moz-animation: myblink 1s infinite alternate;
+    animation: myblink 1s infinite alternate;
+}
 
-/*footer > a {
-	font-family: Raleway, sans-serif;
-	text-transform: none;
-	font-size: 14px;
-	font-weight: normal;
-	padding: 0;
-}*/
+@keyframes myblink {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
 
+@-webkit-keyframes myblink {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@-moz-keyframes myblink {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
 
 
