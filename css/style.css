@@ -76,6 +76,15 @@ main {
 	margin-top: 220px;
 }
 
+/*fix content disappearing behind fixed nav when links are clicked*/
+main>h2:before {
+    content: " ";
+    display: block;
+    visibility: hidden;
+    margin-top: -14em;
+    height: 14em;
+}
+
 p {
 	font-family: "Droid Serif", serif;
 	line-height: 26px;
