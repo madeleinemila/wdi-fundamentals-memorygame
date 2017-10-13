@@ -1,6 +1,8 @@
 :root {
 	--low-accent: #00A6B3;
 	--high-accent: #F15B31;
+	--header-height: 105px;
+	--nav-height: 20px;
 }
 
 body {
@@ -11,7 +13,7 @@ body {
 h1, h2, a {
 	text-transform: uppercase;
 	font-family: Raleway, sans-serif;
-	letter-spacing: 1px;	
+	letter-spacing: 1px;
 }
 
 h1 {
@@ -38,16 +40,25 @@ a {
 
 header {
 	background-color: var(--high-accent);
-	padding: 30px 20px;
+	padding-top: 30px;
+	position: fixed;
+	width: 100%;
+	height: var(--header-height);
+	top: 0px;
 }
 
 header > h1 {
 	color: #FFFFFF;
+	text-align: center;
 }
 
 nav {
 	background-color: var(--low-accent);
 	padding: 20px 0;
+	position: fixed;
+	width: 100%;
+	height: var(--nav-height);
+	top: var(--header-height);
 }
 
 nav > a {
@@ -62,6 +73,7 @@ a:hover {
 main {
 	width: 800px;
 	margin: 35px auto;
+	margin-top: 220px;
 }
 
 p {
@@ -81,14 +93,6 @@ footer {
 	padding: 10px 20px;
 	background-color: #0D2C40;
 	color: white;
-
-/*	background-color: #666;
-	color: white;
-	font-family: Raleway, sans-serif;
-	font-size: 14px;
-	font-weight: normal;
-	padding: 18px;
-	word-spacing: 2px;*/
 }
 
 footer p {
