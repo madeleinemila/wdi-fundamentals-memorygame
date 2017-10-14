@@ -82,6 +82,23 @@ var checkFlipped = function(card) {
 };
 
 
+// ** TIMER
+var timerInterval, timerIncrement, timerFinalValue, clickedOnce;
+
+var changeValue = function() {
+	timerIncrement++;
+	//console.log(timerIncrement);
+};
+
+var startTimer = function() {
+	timerIncrement = 0;
+	timerInterval = setInterval(changeValue, 100);
+};
+
+var stopTimer = function() {
+	clearInterval(timerInterval);
+	timerFinalValue = timerIncrement/10;
+};
 
 
 
@@ -94,15 +111,17 @@ var checkForMatch = function() {
 	if (cardsInPlay[0].playRank === cardsInPlay[1].playRank) {
 		// IF MATCHING
 		// update player console
-		document.getElementById('game-status').innerHTML = 'You found a match!<span class="continue">Continue &gt;</span>';
+		document.getElementById('game-status').innerHTML = 'You found a match!<span class="continue">Next turn &gt;</span>';
 		// prevent flipping more cards until continue button pressed
 		document.getElementById('game-board').style.pointerEvents = "none";
 		// reset for next turn if user presses continue button
 		document.getElementsByClassName('continue')[0].addEventListener('click', resetCardsWhenMatch);
 		// but also check if game is finished
 		var endGame = cards.every(checkFlipped, true);
+		// IF GAME IS FINISHED
 		if (endGame === true) {
-			document.getElementById('game-status').innerHTML = "Congratulations! You've found all the pairs!<span class='continue'>Reset &gt;</span>";
+			stopTimer();
+			document.getElementById('game-status').innerHTML = "Congrats! You found all the pairs in approx <span class='time'>" + timerFinalValue + "</span> seconds!<span class='continue'>Reset &gt;</span>";
 			document.getElementsByClassName('continue')[0].addEventListener('click', resetAll);
 		};
 	} else {
@@ -118,6 +137,13 @@ var checkForMatch = function() {
 
 
 var flipCard = function(){
+	// check if this is first card flipped...
+	if (!clickedOnce) {
+		clickedOnce = true;
+		// if it is, start timer
+		startTimer();
+	};
+	// flipping game play
 	var cardId = this.getAttribute('data-id');
 	console.log("User flipped " + cards[cardId].rank);
 	var playedObject = 
@@ -179,10 +205,14 @@ var shuffle = function(array) {
 
 var createBoard = function() {
 	shuffle(cards);
+	clickedOnce = false;
+	// draw cards
 	for (var i=0; i<cards.length; i++){
 		var cardElement = document.createElement('img');
 		cardElement.setAttribute('src', 'images/back.png');
 		cardElement.setAttribute('data-id', i);
+
+
 		// add click event
 		cardElement.addEventListener('click', flipCard);
 		// append card
@@ -202,5 +232,6 @@ var resetAll = function() {
 };
 
 createBoard();
+
 
 
