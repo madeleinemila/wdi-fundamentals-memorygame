@@ -1,5 +1,8 @@
 console.log("Up and running! Hi there GA.");
 
+
+// ** CARDS
+
 var cards = [
 {
 	rank: "queen",
@@ -24,11 +27,52 @@ var cards = [
 	suit: "diamonds",
 	cardImage: "images/king-of-diamonds.png",
 	flipped: false
+},
+{
+	rank: "ace",
+	suit: "hearts",
+	cardImage: "images/ace-of-hearts.png",
+	flipped: false
+},
+{
+	rank: "ace",
+	suit: "diamonds",
+	cardImage: "images/ace-of-diamonds.png",
+	flipped: false
+},
+{
+	rank: "jack",
+	suit: "hearts",
+	cardImage: "images/jack-of-hearts.png",
+	flipped: false
+},
+{
+	rank: "jack",
+	suit: "diamonds",
+	cardImage: "images/jack-of-diamonds.png",
+	flipped: false
+},
+{
+	rank: "two",
+	suit: "hearts",
+	cardImage: "images/two-of-hearts.png",
+	flipped: false
+},
+{
+	rank: "two",
+	suit: "diamonds",
+	cardImage: "images/two-of-diamonds.png",
+	flipped: false
 }
 ];
 
 
 var cardsInPlay = [];
+
+
+
+
+
 
 
 // ** ENDGAME
