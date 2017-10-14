@@ -41,9 +41,15 @@ a {
 	color: #F15B31;
 	font-weight: 600;
 	font-size: 18px;
+}
+
+.bottomborder {
 	border-bottom: 2px solid transparent;
 }
 
+.bottomborder:hover {
+	border-color: white;
+}
 
 header {
 	background-color: var(--high-accent);
@@ -73,9 +79,7 @@ nav > a {
 	padding: 0 20px;
 }
 
-a:hover {
-	border-color: white;
-}
+
 
 main {
 	width: 1100px;
@@ -162,10 +166,15 @@ footer p {
 	color: var(--high-accent);
 }
 
+main > p {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
 #game-status {
 	background-color: white;
 	color: var(--low-accent);
-	margin: 35px 8px 80px 8px;
+	margin: 35px 60px 80px 60px;
 	padding: 20px;
 	text-transform: uppercase;
 	font-family: Raleway, sans-serif;
