@@ -30,6 +30,12 @@ h2 {
 	margin: 60px 10px 20px 10px;
 }
 
+/* making Game link jump to top of game and not heading*/
+h6 {
+	padding-top: 150px;
+	margin-top: -150px;
+}
+
 a {
 	text-decoration: none;
 	color: #F15B31;
@@ -37,6 +43,7 @@ a {
 	font-size: 18px;
 	border-bottom: 2px solid transparent;
 }
+
 
 header {
 	background-color: var(--high-accent);
@@ -92,6 +99,24 @@ p {
 	text-align: justify;
 /*	text-align-last: center;*/
 	}
+
+p > a {
+	font-family: "Droid Serif", serif; 
+	line-height: 26px;
+	font-size: 16px;
+	color: black;
+	text-decoration: underline;
+	text-transform: lowercase;
+	font-weight: normal;
+}
+
+p > a:hover {
+	color: var(--high-accent);
+}
+
+#bonus > p {
+	text-align: center;
+}
 
 img {
 	margin: 40px 8px 0 8px;
@@ -149,6 +174,7 @@ footer p {
 	text-align: left;
 	font-size: 20px;
 }
+
 
 .continue {
 	float: right;
