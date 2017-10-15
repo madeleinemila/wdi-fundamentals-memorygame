@@ -111,6 +111,8 @@ p {
 	font-size: 16px;
 	text-align: justify;
 	padding: 0 10px;
+	max-width: 890px;
+	margin: 0 auto;
 	}
 
 p > a {
@@ -176,11 +178,6 @@ footer p {
 	color: #F15B31;
 }
 
-/*main > p {
-	max-width: 890px;
-	margin: 0 auto;
-}*/
-
 #game-board {
 	max-width: 1100px; /*for IE*/
 	margin: 0 auto; /*for IE*/
@@ -189,7 +186,6 @@ footer p {
 #game-status {
 	background-color: white;
 	color: #00A6B3;
-	margin: 35px 60px 80px 60px;
 	padding: 20px;
 	text-transform: uppercase;
 	font-family: Raleway, sans-serif;
@@ -197,11 +193,12 @@ footer p {
 	font-weight: 500;
 	text-align: left;
 	font-size: 20px;
-	max-width: 1100px;
+	max-width: 1100px; /*for IE*/
+	margin: 35px auto 80px auto;
 }
 
 #bonus {
-	margin: 35px auto;
+	margin: 35px auto; /*for IE*/
 }
 
 .time {
@@ -272,7 +269,7 @@ footer p {
 }
 
 .covered-by-overlay {
-	margin-top: 165px;
+	margin-top: 165px; /*for IE*/
 }
 
 @media (min-width: 986px) { /* if larger than 985px wide. made 985 for IE */
