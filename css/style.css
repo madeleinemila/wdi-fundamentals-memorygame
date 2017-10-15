@@ -67,7 +67,7 @@ header > h1 {
 
 nav {
 	background-color: var(--low-accent);
-	padding: 20px 0;
+	padding: var(--nav-height) 0;
 	position: fixed;
 	width: 100%;
 	height: var(--nav-height);
@@ -224,4 +224,32 @@ main > p {
     to {opacity: 1;}
 }
 
+
+.overlay {
+	background-color: white;
+	color: #222;
+/*	vertical-align: middle;*/
+	position: absolute;
+	top: calc(var(--header-height) + (var(--nav-height)*3)); /* *3 bc nav-height is used for height plus top and bot padding*/
+	height: 720px;
+	max-width: 1100px;
+	margin: 0 auto;
+	white-space: normal;
+	font-family: Raleway, sans-serif;
+	padding: 100px;
+	padding-top: 250px;
+	line-height: 24px;
+	z-index: 2;
+	font-size: 20px;
+}
+
+.small-warning {
+	font-size: 16px;
+}
+
+@media (min-width: 960px) {
+	.overlay {
+		display: none;
+	}
+}
 
