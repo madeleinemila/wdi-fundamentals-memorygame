@@ -176,9 +176,14 @@ footer p {
 	color: #F15B31;
 }
 
-main > p {
+/*main > p {
 	max-width: 890px;
 	margin: 0 auto;
+}*/
+
+#game-board {
+	max-width: 1100px; /*for IE*/
+	margin: 0 auto; /*for IE*/
 }
 
 #game-status {
@@ -192,6 +197,11 @@ main > p {
 	font-weight: 500;
 	text-align: left;
 	font-size: 20px;
+	max-width: 1100px;
+}
+
+#bonus {
+	margin: 35px auto;
 }
 
 .time {
@@ -241,7 +251,7 @@ main > p {
 	position: absolute;
 	/*top: calc(var(--header-height) + (var(--nav-height)*3));*/
 	top: 165px;
-	max-width: 970px;
+	max-width: 985px;
 	margin: 0 auto;
 	white-space: normal;
 	font-family: Raleway, sans-serif;
@@ -261,13 +271,17 @@ main > p {
 	font-size: 16px;
 }
 
-@media (min-width: 971px) { /* if larger than 970px wide */
+.covered-by-overlay {
+	margin-top: 165px;
+}
+
+@media (min-width: 986px) { /* if larger than 985px wide. made 985 for IE */
 	.overlay {
 		display: none;
 	}
 }
 
-@media (max-width: 970px) { /* if smaller than or = 970px wide */
+@media (max-width: 985px) { /* if smaller than or = 985px wide */
 .covered-by-overlay {
 	height: 750px;
 	visibility: hidden;
