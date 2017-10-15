@@ -75,7 +75,7 @@ var cardsInPlay = [];
 
 
 
-// ** ENDGAME
+// **
 
 var checkFlipped = function(card) {
 	return card.flipped === true;
@@ -145,21 +145,24 @@ var flipCard = function(){
 	};
 	// flipping game play
 	var cardId = this.getAttribute('data-id');
-	console.log("User flipped " + cards[cardId].rank);
-	var playedObject = 
-		{
-			playRank: cards[cardId].rank,
-			playId: cardId
-		};
-	cardsInPlay.push(playedObject);
+	console.log("NEW CARD CLICKED. Card is already flipped: " + cards[cardId].flipped);
+	if (cards[cardId].flipped === false) { // added to avoid cards being flipped back after match
+		console.log("User flipped " + cards[cardId].rank);
+		var playedObject = 
+			{
+				playRank: cards[cardId].rank,
+				playId: cardId
+			};
+		cardsInPlay.push(playedObject);
 
-	console.log("Image: " + cards[cardId].cardImage);
-	console.log("Suit: " + cards[cardId].suit);
-	this.setAttribute('src', cards[cardId].cardImage);
-	cards[cardId].flipped = true;
-	if (cardsInPlay.length === 2) {
-		checkForMatch();
-	}
+		console.log("Image: " + cards[cardId].cardImage);
+		// console.log("Suit: " + cards[cardId].suit);
+		this.setAttribute('src', cards[cardId].cardImage);
+		cards[cardId].flipped = true;
+		if (cardsInPlay.length === 2) {
+			checkForMatch();
+		}
+	}; //
 };
 
 var resetCardsWhenNoMatch = function(){

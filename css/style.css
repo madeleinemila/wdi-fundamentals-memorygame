@@ -92,9 +92,6 @@ main {
 	margin-top: var(--instr-height);
 }
 
-.covered-by-overlay {
-	min-width: 960px;
-}
 
 /*fix content disappearing behind fixed nav when links are clicked*/
 main>h2:before {
@@ -121,6 +118,7 @@ p > a {
 	text-decoration: underline;
 	text-transform: lowercase;
 	font-weight: normal;
+	letter-spacing: 0.3px;
 }
 
 p > a:hover {
@@ -237,11 +235,9 @@ main > p {
 .overlay {
 	background-color: white;
 	color: #222;
-/*	vertical-align: middle;*/
 	position: absolute;
 	top: calc(var(--header-height) + (var(--nav-height)*3)); /* *3 bc nav-height is used for height plus top and bot padding*/
-	height: 720px;
-	max-width: 1100px;
+	max-width: 960px;
 	margin: 0 auto;
 	white-space: normal;
 	font-family: Raleway, sans-serif;
@@ -252,13 +248,26 @@ main > p {
 	font-size: 20px;
 }
 
+.warning {
+	display: inline-block;
+	margin: 0 auto;
+}
+
 .small-warning {
 	font-size: 16px;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 961px) { /* if larger than 960px wide */
 	.overlay {
 		display: none;
+	}
+}
+
+@media (max-width: 960px) { /* if smaller than or = 960px wide */
+.covered-by-overlay {
+	height: 750px;
+	visibility: hidden;
+	overflow: hidden;
 	}
 }
 
