@@ -3,6 +3,7 @@
 	--high-accent: #F15B31;
 	--header-height: 105px;
 	--nav-height: 20px;
+	--instr-height: 165px;
 }
 
 body {
@@ -30,8 +31,12 @@ h2 {
 	margin: 60px 10px 20px 10px;
 }
 
-/* making Game link jump to top of game and not heading*/
-h6 {
+/* h5 and h6 making nav links jump to desired position */
+h5 { /*instructions*/
+	padding-top: var(--instr-height);
+	margin-top: calc(var(--instr-height) * -1);
+}
+h6 { /*game*/
 	padding-top: 150px;
 	margin-top: -150px;
 }
@@ -82,9 +87,13 @@ nav > a {
 
 
 main {
-	width: 1100px;
+	max-width: 1100px;
 	margin: 35px auto;
-	margin-top: 220px;
+	margin-top: var(--instr-height);
+}
+
+.covered-by-overlay {
+	min-width: 960px;
 }
 
 /*fix content disappearing behind fixed nav when links are clicked*/
@@ -101,7 +110,7 @@ p {
 	line-height: 26px;
 	font-size: 16px;
 	text-align: justify;
-/*	text-align-last: center;*/
+	padding: 0 10px;
 	}
 
 p > a {
